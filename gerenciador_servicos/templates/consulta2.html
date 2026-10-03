@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Consulta de Serviços</h1>
+    <!--<ol>
+        {% for servico in servicos %}
+           <li>{{ servico.descricao }}</li>
+        {% endfor%}
+    </ol>-->
+    <div class="container mt-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for servico in servicos %}
+                <tr>
+                    <td>{{ servico.descricao }}</td>
+                    <td>{{ servico.preco }}</td>
+                    <td>{{ servico.data }}</td>
+                    <td><a href="{% url 'excluir' servico.id %}"><i class="bi bi-trash"></i></a> </td>
+                    <td><a href="{% url 'editar' servico.id %}"><i class="bi bi-wrench-adjustable"></i></a> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+
+</html>

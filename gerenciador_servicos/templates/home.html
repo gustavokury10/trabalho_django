@@ -11,7 +11,10 @@
 
     {%if user.is_authenticated %}
         <p class="lead">Bem-vindo, {{ user.username }}!</p>
-        
+        <a href="{% url 'cadastro1' %}">Cadastro de Clientes</a>
+        <a href="{% url 'cadastro2' %}">Cadastro de Serviços</a>
+        <a href="{% url 'consulta1' %}">Consulta de Clientes</a>
+        <a href="{% url 'consulta2' %}">Consulta de Serviços</a>
     {% endif %}
 
 </body>
