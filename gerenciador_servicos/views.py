@@ -24,5 +24,5 @@ def cadastro1(request):
        telefone = request.POST.get('telefone')
        cpf = request.POST.get('cpf')
     
-    return render(request,'cadastro.html')
+    return render(request,'cadastro1.html')
 
