@@ -9,11 +9,11 @@
 <body>
     <div class="container mt-4">
         <h2 class="text-center">Cadastro</h2>
-        <form method="POST" action="{% url 'cadastro1' %}">
+        <form method="POST" action="{% url 'cadastrocliente' %}">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <input type="text" class="form-control" id="username" name="nome" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>

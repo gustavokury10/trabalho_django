@@ -18,25 +18,29 @@ def login_view(request):
     else:
         return render(request, 'login.html')
 
-def cadastro1(request):
+def cadastrocliente(request):
     if request.method == 'POST':
        nome = request.POST.get('nome')
        email = request.POST.get('email')
        telefone = request.POST.get('telefone')
-       cpf = request.POST.get('cpf')
-    
-    return render(request,'cadastro1.html')
+       cpf = request.POST.get('cpf')    
+
+       Clientes.objects.create(nome=nome, email=email, telefone=telefone, cpf=cpf)
+
+       return render(request,'consultacliente.html')
+    return render(request,'cadastrocliente.html')
 
 def cadastro2(request):
     if request.method == 'POST':
        descricao = request.POST.get('descricao')
        preco = request.POST.get('preco')
-       data = request.POST.get('data')
-    
+       data = request.POST.get('data')    
     return render(request,'cadastro2.html')
 
-def consulta1(request):
-    return render(request,'consulta1.html')
+def consultacliente(request):
+    clientes = Clientes.objects.all() #select * from clientes
+    return render(request,'consultacliente.html',{ 'clientes':clientes})
+  
 
 def consulta2(request):
     return render(request,'consulta2.html')
@@ -44,9 +48,8 @@ def consulta2(request):
 def excluir1(request, id):
     cliente = get_object_or_404(Clientes, id=id)
     #select * from Clientes_clientes where id = 1
-    cliente.delete()
-    
-    return render(request,)
+    cliente.delete()    
+    return render(request, 'excluir1.html')
 
 def editar1(request, id):
     cliente = get_object_or_404(Clientes, id=id)
@@ -57,6 +60,5 @@ def editar1(request, id):
         cliente.telefone = request.POST.get('telefone')
         cliente.cpf = request.POST.get('cpf')
 
-        cliente.save()
-    
+        cliente.save()    
     return render(request,'editar1.html')
