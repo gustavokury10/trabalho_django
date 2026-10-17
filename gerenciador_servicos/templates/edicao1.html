@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="text-center">Editar Cliente</h1>
+    <div class="container mt-4">
+        <form method="POST" action="{% url 'edicao1' cliente.id %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ cliente.username }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ cliente.email }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone:</label>
+                <input type="text" class="form-control" id="telefone" name="telefone" value="{{ cliente.telefone }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF:</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" value="{{ cliente.cpf }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        </form>
+    </div>
+    </body>
+    </html>
